@@ -60,6 +60,11 @@
     [self __initSetup];
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.leftIconLab.layer.mask = nil;
+}
+
 - (void)__initSetup {
     
     [self.contentView addSubview:self.bgLab];
@@ -96,11 +101,11 @@
     self.addtInfoLab.font = font;
     self.addtInfoLab.textColor = color;
     self.addtInfoLab.lineBreakMode = NSLineBreakByCharWrapping;
-    self.addtInfoLab.numberOfLines = 2;
-    self.addtInfoLab.preferredMaxLayoutWidth = PBSCREEN_WIDTH-10*2-70;
+    self.addtInfoLab.numberOfLines = 0;
+    self.addtInfoLab.preferredMaxLayoutWidth = PBSCREEN_WIDTH-10*2-80;
     
 //    [self.contentView addSubview:self.leftImg];
-    [self.contentView addSubview:self.leftIconLab];
+    [self.bgLab addSubview:self.leftIconLab];
     
     color = [UIColor colorWithRed:237/255.f green:240/255.f blue:243/255.f alpha:1];
     self.contentView.backgroundColor = color;
@@ -201,35 +206,29 @@
         make.height.equalTo(@20);
     }];
     
-    self.addtInfoLab.preferredMaxLayoutWidth = PBSCREEN_WIDTH-10*2-70;
+    self.addtInfoLab.preferredMaxLayoutWidth = PBSCREEN_WIDTH-10*2-80;
     [self.addtInfoLab mas_makeConstraints:^(MASConstraintMaker *make) {
         strongify(self)
         make.top.equalTo(self.addtPreLab);
         make.left.equalTo(self.addtPreLab.mas_right).offset(5);
     }];
     
-    //左边图片
-//    [self.leftImg mas_makeConstraints:^(MASConstraintMaker *make) {
-//        strongify(self)
-//        make.top.equalTo(self.taskLab);
-//        make.left.equalTo(self.contentView).offset(5);
-//        make.bottom.equalTo(self.addtInfoLab).priorityLow(998);
-//        make.width.equalTo(@5);
-//    }];
     [self.leftIconLab mas_makeConstraints:^(MASConstraintMaker *make) {
         strongify(self)
         make.top.left.bottom.equalTo(self.bgLab);
         make.width.equalTo(@5);
     }];
 
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.leftIconLab.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerBottomLeft cornerRadii:CGSizeMake(4,4)];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = self.leftIconLab.bounds;
-    maskLayer.path = maskPath.CGPath;
-    self.leftIconLab.layer.mask = maskLayer;
+//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.leftIconLab.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerBottomLeft cornerRadii:CGSizeMake(4,4)];
+//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+//    maskLayer.frame = self.leftIconLab.bounds;
+//    maskLayer.path = maskPath.CGPath;
+//    self.leftIconLab.layer.mask = maskLayer;
+//    self.maskLayer = maskLayer;
     
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(PBSCREEN_WIDTH));
+        make.top.left.equalTo(@0);
         make.bottom.equalTo(self.addtInfoLab.mas_bottom).offset(15);
     }];
     
@@ -554,7 +553,10 @@
 #pragma mark -- Scroller's delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
+    //TODO:跟随移动flagger
+//    if (self.navigator) {
+//        [self.navigator updateFlagWithContentOffset:scrollView.contentOffset.x];
+//    }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -618,11 +620,11 @@ NSString *something = @"相声（Crosstalk)一种民间说唱曲艺。相声一�
     
     NSArray *arr = [self dataSource4Index:self.preIdx];
     if (PBIsEmpty(arr)) {
-        NSUInteger mCount = 6;
+        NSUInteger mCount = 20;
         NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:0];
-        //int len = (int)[something length];
+        int len = (int)[something length];
         for (int i = 0; i < mCount; i ++) {
-            NSString *addtInfo = [something substringToIndex:[self random:10 max:40]];
+            NSString *addtInfo = [something substringToIndex:[self random:20 max:len]];
             //NSLog(@"generate info :%@",addtInfo);
             NSDictionary *dict = @{
                                    @"tasktype":PBFormat(@"%zd",i%3),

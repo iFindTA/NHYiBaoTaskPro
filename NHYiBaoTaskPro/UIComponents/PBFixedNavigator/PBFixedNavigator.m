@@ -101,8 +101,9 @@ int const mSubNavigatorHeight               =       mSubHeight;
 #pragma mark -- update method
 
 - (void)updateFlagWithContentOffset:(CGFloat)offset {
-    
-    
+    CGFloat real_x = (self.mItemWidth*offset)/PBSCREEN_WIDTH;
+    CGRect bounds = CGRectMake(real_x,mSubHeight-mFlagHeight, self.mItemWidth, mFlagHeight);
+    self.flagger.frame = bounds;
 }
 
 - (void)updateSuffix:(NSUInteger)mCount forIndex:(NSUInteger)index {
