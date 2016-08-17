@@ -1,0 +1,16 @@
+//
+//  YiBaoPrefix.pch
+//  NHYiBaoTaskPro
+//
+//  Created by hu jiaju on 16/8/16.
+//  Copyright © 2016年 Nanhu. All rights reserved.
+//
+
+#ifndef YiBaoPrefix_pch
+#define YiBaoPrefix_pch
+
+#import <PBKits.h>
+#import <Masonry.h>
+#import <MJRefresh.h>
+
+#endif /* YiBaoPrefix_pch */

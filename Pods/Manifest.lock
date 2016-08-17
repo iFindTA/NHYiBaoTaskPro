@@ -1,0 +1,18 @@
+PODS:
+  - Masonry (1.0.1)
+  - MJRefresh (3.1.12)
+  - PBKits (0.4.180)
+
+DEPENDENCIES:
+  - Masonry (~> 1.0.1)
+  - MJRefresh (~> 3.1.12)
+  - PBKits (~> 0.4.180)
+
+SPEC CHECKSUMS:
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  PBKits: ae0fb9f8f1af8c9891316fbd47c8685bf5c3bce5
+
+PODFILE CHECKSUM: 035e778febb131a74af1014f293821c9dc3f44c1
+
+COCOAPODS: 1.0.1

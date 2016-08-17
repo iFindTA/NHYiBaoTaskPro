@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "YBTaskRootCtr.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,41 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    self.window = [[UIWindow alloc] initWithFrame:bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    UIColor *color = [UIColor colorWithRed:58/255.f green:181/255.f blue:172/255.f alpha:1];
+    [[UINavigationBar appearance] setBarTintColor:color];
+    [[UINavigationBar appearance] setTranslucent:false];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17]}];
+    
+    UITabBarController *tabBar = [[UITabBarController alloc] init];
+    UIViewController *msgCtr = [[UIViewController alloc] init];
+    UINavigationController *msgNavi = [[UINavigationController alloc] initWithRootViewController:msgCtr];
+    msgCtr.title = @"消息";
+    
+    YBTaskRootCtr *taskCtr = [[YBTaskRootCtr alloc] init];
+    UINavigationController *taskNavi = [[UINavigationController alloc] initWithRootViewController:taskCtr];
+    taskCtr.title = @"任务";
+    
+    UIViewController *preCtr = [[UIViewController alloc] init];
+    UINavigationController *preNavi = [[UINavigationController alloc] initWithRootViewController:preCtr];
+    preCtr.title = @"预约";
+    
+    UIViewController *huanCtr = [[UIViewController alloc] init];
+    UINavigationController *huanNavi = [[UINavigationController alloc] initWithRootViewController:huanCtr];
+    huanCtr.title = @"患者";
+    
+    UIViewController *mineCtr = [[UIViewController alloc] init];
+    UINavigationController *mineNavi = [[UINavigationController alloc] initWithRootViewController:mineCtr];
+    mineCtr.title = @"我的";
+    
+    tabBar.viewControllers = @[msgNavi, taskNavi, preNavi, huanNavi, mineNavi];
+    self.window.rootViewController = tabBar;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

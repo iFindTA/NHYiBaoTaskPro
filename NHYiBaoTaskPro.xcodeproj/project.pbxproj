@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60D480B21D63F693004A70A2 /* PBFixedNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D480B11D63F693004A70A2 /* PBFixedNavigator.m */; };
 		60F7DEEE1D62B7D40012FEF5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F7DEED1D62B7D40012FEF5 /* main.m */; };
 		60F7DEF11D62B7D40012FEF5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F7DEF01D62B7D40012FEF5 /* AppDelegate.m */; };
 		60F7DEF41D62B7D40012FEF5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F7DEF31D62B7D40012FEF5 /* ViewController.m */; };
@@ -15,6 +16,8 @@
 		60F7DEFC1D62B7D40012FEF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F7DEFA1D62B7D40012FEF5 /* LaunchScreen.storyboard */; };
 		60F7DF071D62B7D40012FEF5 /* NHYiBaoTaskProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F7DF061D62B7D40012FEF5 /* NHYiBaoTaskProTests.m */; };
 		60F7DF121D62B7D40012FEF5 /* NHYiBaoTaskProUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F7DF111D62B7D40012FEF5 /* NHYiBaoTaskProUITests.m */; };
+		60F7DF231D62B8310012FEF5 /* YBTaskRootCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F7DF221D62B8310012FEF5 /* YBTaskRootCtr.m */; };
+		AFA5AA52C7BEC7F3EEB680E7 /* libPods-NHYiBaoTaskPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF76C4EF229C7C76BAAA410 /* libPods-NHYiBaoTaskPro.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FF76C4EF229C7C76BAAA410 /* libPods-NHYiBaoTaskPro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NHYiBaoTaskPro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		57D06940C92488313166ED13 /* Pods-NHYiBaoTaskPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHYiBaoTaskPro.release.xcconfig"; path = "Pods/Target Support Files/Pods-NHYiBaoTaskPro/Pods-NHYiBaoTaskPro.release.xcconfig"; sourceTree = "<group>"; };
+		60D480B01D63F693004A70A2 /* PBFixedNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFixedNavigator.h; sourceTree = "<group>"; };
+		60D480B11D63F693004A70A2 /* PBFixedNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFixedNavigator.m; sourceTree = "<group>"; };
 		60F7DEE91D62B7D40012FEF5 /* NHYiBaoTaskPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NHYiBaoTaskPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F7DEED1D62B7D40012FEF5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		60F7DEEF1D62B7D40012FEF5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +58,10 @@
 		60F7DF0D1D62B7D40012FEF5 /* NHYiBaoTaskProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NHYiBaoTaskProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F7DF111D62B7D40012FEF5 /* NHYiBaoTaskProUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NHYiBaoTaskProUITests.m; sourceTree = "<group>"; };
 		60F7DF131D62B7D40012FEF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60F7DF211D62B8310012FEF5 /* YBTaskRootCtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBTaskRootCtr.h; sourceTree = "<group>"; };
+		60F7DF221D62B8310012FEF5 /* YBTaskRootCtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBTaskRootCtr.m; sourceTree = "<group>"; };
+		60F7DF251D62B9640012FEF5 /* YiBaoPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YiBaoPrefix.pch; sourceTree = "<group>"; };
+		D4B305C753003F0BADE6B4F2 /* Pods-NHYiBaoTaskPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHYiBaoTaskPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NHYiBaoTaskPro/Pods-NHYiBaoTaskPro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFA5AA52C7BEC7F3EEB680E7 /* libPods-NHYiBaoTaskPro.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +97,8 @@
 				60F7DF051D62B7D40012FEF5 /* NHYiBaoTaskProTests */,
 				60F7DF101D62B7D40012FEF5 /* NHYiBaoTaskProUITests */,
 				60F7DEEA1D62B7D40012FEF5 /* Products */,
+				B3CDA9F6C7FA0CB7FD9BAE02 /* Pods */,
+				74702F4117FB45E61BB7E43E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +115,8 @@
 		60F7DEEB1D62B7D40012FEF5 /* NHYiBaoTaskPro */ = {
 			isa = PBXGroup;
 			children = (
+				60F7DF261D62BD7D0012FEF5 /* UIComponents */,
+				60F7DF1F1D62B8160012FEF5 /* Classes */,
 				60F7DEEF1D62B7D40012FEF5 /* AppDelegate.h */,
 				60F7DEF01D62B7D40012FEF5 /* AppDelegate.m */,
 				60F7DEF21D62B7D40012FEF5 /* ViewController.h */,
@@ -118,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				60F7DEED1D62B7D40012FEF5 /* main.m */,
+				60F7DF251D62B9640012FEF5 /* YiBaoPrefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -140,6 +157,57 @@
 			path = NHYiBaoTaskProUITests;
 			sourceTree = "<group>";
 		};
+		60F7DF1F1D62B8160012FEF5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				60F7DF201D62B8160012FEF5 /* Task */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		60F7DF201D62B8160012FEF5 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				60F7DF211D62B8310012FEF5 /* YBTaskRootCtr.h */,
+				60F7DF221D62B8310012FEF5 /* YBTaskRootCtr.m */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		60F7DF261D62BD7D0012FEF5 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				60F7DF271D62BD7D0012FEF5 /* PBFixedNavigator */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		60F7DF271D62BD7D0012FEF5 /* PBFixedNavigator */ = {
+			isa = PBXGroup;
+			children = (
+				60D480B01D63F693004A70A2 /* PBFixedNavigator.h */,
+				60D480B11D63F693004A70A2 /* PBFixedNavigator.m */,
+			);
+			path = PBFixedNavigator;
+			sourceTree = "<group>";
+		};
+		74702F4117FB45E61BB7E43E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FF76C4EF229C7C76BAAA410 /* libPods-NHYiBaoTaskPro.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3CDA9F6C7FA0CB7FD9BAE02 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D4B305C753003F0BADE6B4F2 /* Pods-NHYiBaoTaskPro.debug.xcconfig */,
+				57D06940C92488313166ED13 /* Pods-NHYiBaoTaskPro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +215,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60F7DF161D62B7D40012FEF5 /* Build configuration list for PBXNativeTarget "NHYiBaoTaskPro" */;
 			buildPhases = (
+				745DCFA667D412C07BED3AED /* [CP] Check Pods Manifest.lock */,
 				60F7DEE51D62B7D40012FEF5 /* Sources */,
 				60F7DEE61D62B7D40012FEF5 /* Frameworks */,
 				60F7DEE71D62B7D40012FEF5 /* Resources */,
+				AEB1BCFC8C2F449301521038 /* [CP] Embed Pods Frameworks */,
+				564169344055A46968F9E72E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,13 +339,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		564169344055A46968F9E72E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NHYiBaoTaskPro/Pods-NHYiBaoTaskPro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		745DCFA667D412C07BED3AED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AEB1BCFC8C2F449301521038 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NHYiBaoTaskPro/Pods-NHYiBaoTaskPro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		60F7DEE51D62B7D40012FEF5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				60F7DEF41D62B7D40012FEF5 /* ViewController.m in Sources */,
+				60F7DF231D62B8310012FEF5 /* YBTaskRootCtr.m in Sources */,
 				60F7DEF11D62B7D40012FEF5 /* AppDelegate.m in Sources */,
+				60D480B21D63F693004A70A2 /* PBFixedNavigator.m in Sources */,
 				60F7DEEE1D62B7D40012FEF5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,23 +537,34 @@
 		};
 		60F7DF171D62B7D40012FEF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4B305C753003F0BADE6B4F2 /* Pods-NHYiBaoTaskPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = $SRCROOT/NHYiBaoTaskPro/YiBaoPrefix.pch;
 				INFOPLIST_FILE = NHYiBaoTaskPro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nanhu.NHYiBaoTaskPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_STYLE = all;
 			};
 			name = Debug;
 		};
 		60F7DF181D62B7D40012FEF5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57D06940C92488313166ED13 /* Pods-NHYiBaoTaskPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = $SRCROOT/NHYiBaoTaskPro/YiBaoPrefix.pch;
 				INFOPLIST_FILE = NHYiBaoTaskPro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nanhu.NHYiBaoTaskPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_STYLE = all;
 			};
 			name = Release;
 		};
@@ -501,6 +633,7 @@
 				60F7DF181D62B7D40012FEF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60F7DF191D62B7D40012FEF5 /* Build configuration list for PBXNativeTarget "NHYiBaoTaskProTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +642,7 @@
 				60F7DF1B1D62B7D40012FEF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60F7DF1C1D62B7D40012FEF5 /* Build configuration list for PBXNativeTarget "NHYiBaoTaskProUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +651,7 @@
 				60F7DF1E1D62B7D40012FEF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
