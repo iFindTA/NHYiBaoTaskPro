@@ -29,6 +29,9 @@
 @property (nonatomic, strong) UIImageView *leftImg;
 @property (nonatomic, strong) UILabel *leftIconLab;
 
+//布局空间
+@property (nonatomic, strong) MASConstraint *doctConstraint;
+
 /**
  *  @brief update method
  *
@@ -63,6 +66,7 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     self.leftIconLab.layer.mask = nil;
+    [self.doctConstraint deactivate];
 }
 
 - (void)__initSetup {
@@ -110,55 +114,6 @@
     color = [UIColor colorWithRed:237/255.f green:240/255.f blue:243/255.f alpha:1];
     self.contentView.backgroundColor = color;
     
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
-}
-
-- (void)updateContent4Info:(NSDictionary *)aDict {
-    
-    NSUInteger type = [[aDict objectForKey:@"tasktype"] integerValue];
-    NSString *typeTitle = nil;NSString *imgName = nil;
-    UIColor *leftColor = nil;
-    if (type == 0) {
-        typeTitle = @"驻院诊导任务";
-        imgName = @"p_zhuyuandaozhen";
-        leftColor = [UIColor colorWithRed:125/255.f green:196/255.f blue:240/255.f alpha:1];
-    }else if (type == 1){
-        typeTitle = @"随访任务";
-        imgName = @"p_suifang";
-        leftColor = [UIColor colorWithRed:146/255.f green:221/255.f blue:161/255.f alpha:1];
-    }else if (type == 2){
-        typeTitle = @"全程陪诊任务";
-        imgName = @"p_quanchengpeizhen";
-        leftColor = [UIColor colorWithRed:156/255.f green:174/255.f blue:226/255.f alpha:1];
-    }
-    self.taskLab.text = typeTitle;
-    
-    NSString *info = [aDict objectForKey:@"patient"];
-    self.patientNameLab.text = info;
-    
-    info = [aDict objectForKey:@"doctpre"];
-    self.doctPreLab.text = info;
-    
-    info = [aDict objectForKey:@"addtpre"];
-    self.addtPreLab.text = info;
-    
-    info = [aDict objectForKey:@"addtinfo"];
-    self.addtInfoLab.text = info;
-    [self.addtInfoLab sizeToFit];
-    
-//    UIImage *img = [UIImage imageNamed:imgName];
-//    CGFloat capWidth = img.size.width / 2;
-//    CGFloat capHeight = img.size.height / 2;
-//    img = [img stretchableImageWithLeftCapWidth:capWidth topCapHeight:capHeight];
-//    self.leftImg.image = img;
-    
-    self.leftIconLab.backgroundColor = leftColor;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
     weakify(self)
     [self.bgLab mas_makeConstraints:^(MASConstraintMaker *make) {
         strongify(self)
@@ -191,14 +146,19 @@
         make.height.equalTo(@20);
     }];
     
+    //医生前缀
     [self.doctPreLab mas_makeConstraints:^(MASConstraintMaker *make) {
         strongify(self)
         make.top.equalTo(self.patientNameLab.mas_bottom).offset(5);
         make.left.equalTo(self.patientNameLab);
         make.right.equalTo(self.patientNameLab);
-        make.height.equalTo(@20);
+        //make.height.equalTo(@20);
+        
+        self.doctConstraint = make.height.equalTo(@0).priority(UILayoutPriorityDefaultHigh);
+        [self.doctConstraint deactivate];
     }];
     
+    //就诊地址
     [self.addtPreLab mas_makeConstraints:^(MASConstraintMaker *make) {
         strongify(self)
         make.top.equalTo(self.doctPreLab.mas_bottom).offset(5);
@@ -206,6 +166,7 @@
         make.height.equalTo(@20);
     }];
     
+    //就诊信息
     self.addtInfoLab.preferredMaxLayoutWidth = PBSCREEN_WIDTH-10*2-80;
     [self.addtInfoLab mas_makeConstraints:^(MASConstraintMaker *make) {
         strongify(self)
@@ -218,19 +179,76 @@
         make.top.left.bottom.equalTo(self.bgLab);
         make.width.equalTo(@5);
     }];
-
-//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.leftIconLab.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerBottomLeft cornerRadii:CGSizeMake(4,4)];
-//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-//    maskLayer.frame = self.leftIconLab.bounds;
-//    maskLayer.path = maskPath.CGPath;
-//    self.leftIconLab.layer.mask = maskLayer;
-//    self.maskLayer = maskLayer;
+    
+    //    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.leftIconLab.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerBottomLeft cornerRadii:CGSizeMake(4,4)];
+    //    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    //    maskLayer.frame = self.leftIconLab.bounds;
+    //    maskLayer.path = maskPath.CGPath;
+    //    self.leftIconLab.layer.mask = maskLayer;
+    //    self.maskLayer = maskLayer;
     
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(PBSCREEN_WIDTH));
         make.top.left.equalTo(@0);
         make.bottom.equalTo(self.addtInfoLab.mas_bottom).offset(15);
     }];
+    
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+}
+
+- (void)updateContent4Info:(NSDictionary *)aDict {
+    
+    NSUInteger type = [[aDict objectForKey:@"tasktype"] integerValue];
+    NSString *typeTitle = nil;NSString *imgName = nil;
+    UIColor *leftColor = nil;BOOL hidden = false;
+    if (type == 0) {
+        typeTitle = @"驻院诊导任务";
+        imgName = @"p_zhuyuandaozhen";
+        leftColor = [UIColor colorWithRed:125/255.f green:196/255.f blue:240/255.f alpha:1];
+    }else if (type == 1){
+        typeTitle = @"随访任务";
+        imgName = @"p_suifang";
+        leftColor = [UIColor colorWithRed:146/255.f green:221/255.f blue:161/255.f alpha:1];
+        hidden = true;
+    }else if (type == 2){
+        typeTitle = @"全程陪诊任务";
+        imgName = @"p_quanchengpeizhen";
+        leftColor = [UIColor colorWithRed:156/255.f green:174/255.f blue:226/255.f alpha:1];
+    }
+    self.taskLab.text = typeTitle;
+    
+    NSString *info = [aDict objectForKey:@"patient"];
+    self.patientNameLab.text = info;
+    
+    info = [aDict objectForKey:@"doctpre"];
+    self.doctPreLab.text = info;
+    
+    info = [aDict objectForKey:@"addtpre"];
+    self.addtPreLab.text = info;
+    
+    info = [aDict objectForKey:@"addtinfo"];
+    self.addtInfoLab.text = info;
+    [self.addtInfoLab sizeToFit];
+    
+//    UIImage *img = [UIImage imageNamed:imgName];
+//    CGFloat capWidth = img.size.width / 2;
+//    CGFloat capHeight = img.size.height / 2;
+//    img = [img stretchableImageWithLeftCapWidth:capWidth topCapHeight:capHeight];
+//    self.leftImg.image = img;
+    
+    self.leftIconLab.backgroundColor = leftColor;
+    
+    if (hidden) {
+        //self.doctPreLab.hidden = hidden;
+        [self.doctConstraint activate];
+    }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    
     
 }
 
@@ -620,7 +638,7 @@ NSString *something = @"相声（Crosstalk)一种民间说唱曲艺。相声一�
     
     NSArray *arr = [self dataSource4Index:self.preIdx];
     if (PBIsEmpty(arr)) {
-        NSUInteger mCount = 20;
+        NSUInteger mCount = 50;
         NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:0];
         int len = (int)[something length];
         for (int i = 0; i < mCount; i ++) {
