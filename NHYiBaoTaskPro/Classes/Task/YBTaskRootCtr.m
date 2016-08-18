@@ -154,9 +154,9 @@
         make.right.equalTo(self.patientNameLab);
         //make.height.equalTo(@20);
         
-        self.doctConstraint = make.height.equalTo(@0).priority(UILayoutPriorityDefaultHigh);
-        [self.doctConstraint deactivate];
+        self.doctConstraint = make.height.equalTo(@0).priority(UILayoutPriorityRequired);
     }];
+    [self.doctConstraint deactivate];
     
     //就诊地址
     [self.addtPreLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -243,6 +243,8 @@
         //self.doctPreLab.hidden = hidden;
         [self.doctConstraint activate];
     }
+    
+    [self layoutIfNeeded];
 }
 
 - (void)layoutSubviews {
