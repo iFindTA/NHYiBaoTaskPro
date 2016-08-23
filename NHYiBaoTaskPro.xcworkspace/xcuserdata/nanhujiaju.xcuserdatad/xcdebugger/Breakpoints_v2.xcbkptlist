@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NHYiBaoTaskPro/Classes/Task/YBTaskRootCtr.m"
-            timestampString = "493211746.931518"
+            timestampString = "493616093.824996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "646"
-            endingLineNumber = "646"
+            startingLineNumber = "670"
+            endingLineNumber = "670"
             landmarkName = "-refreshing"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NHYiBaoTaskPro/Classes/Task/YBTaskRootCtr.m"
-            timestampString = "493211746.931518"
+            timestampString = "493616093.824996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "-updateContent4Info:"
             landmarkType = "5">
          </BreakpointContent>

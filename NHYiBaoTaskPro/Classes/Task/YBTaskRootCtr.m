@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UILabel *patientNameLab,*patientAgeLab,*patientGenderLab;
 
 //医生信息
+@property (nonatomic, strong) UIView *doctBgView;
 @property (nonatomic, strong) UILabel *doctPreLab,*doctNameLab,*doctJobLab,*doctDepartLab,*doctProtocol;
 
 //随访信息 就诊地址
@@ -90,9 +91,12 @@
     self.patientNameLab.font = font;
     self.patientNameLab.textColor = color;
     
+    //doct bg
+    [self.contentView addSubview:self.doctBgView];
+    
     font = PBSysFont(15);
     color = [UIColor colorWithRed:57/255.f green:65/255.f blue:82/255.f alpha:1];
-    [self.contentView addSubview:self.doctPreLab];
+    [self.doctBgView addSubview:self.doctPreLab];
     self.doctPreLab.font = font;
     self.doctPreLab.textColor = color;
     
@@ -147,7 +151,7 @@
     }];
     
     //医生前缀
-    [self.doctPreLab mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.doctBgView mas_makeConstraints:^(MASConstraintMaker *make) {
         strongify(self)
         make.top.equalTo(self.patientNameLab.mas_bottom).offset(5);
         make.left.equalTo(self.patientNameLab);
@@ -157,12 +161,21 @@
         self.doctConstraint = make.height.equalTo(@0).priority(UILayoutPriorityRequired);
     }];
     [self.doctConstraint deactivate];
+    [self.doctPreLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        strongify(self)
+        make.top.equalTo(self.doctBgView).offset(5);
+        make.left.equalTo(self.doctBgView);
+        make.bottom.equalTo(self.doctBgView).offset(-5).priorityMedium(500);
+        //make.right.equalTo(self.patientNameLab);
+        //make.height.equalTo(@20);
+    }];
+    
     
     //就诊地址
     [self.addtPreLab mas_makeConstraints:^(MASConstraintMaker *make) {
         strongify(self)
-        make.top.equalTo(self.doctPreLab.mas_bottom).offset(5);
-        make.left.equalTo(self.doctPreLab);
+        make.top.equalTo(self.doctBgView.mas_bottom).offset(5);
+        make.left.equalTo(self.doctBgView);
         make.height.equalTo(@20);
     }];
     
@@ -172,6 +185,7 @@
         strongify(self)
         make.top.equalTo(self.addtPreLab);
         make.left.equalTo(self.addtPreLab.mas_right).offset(5);
+        make.height.mas_greaterThanOrEqualTo(@20).priorityMedium(500);
     }];
     
     [self.leftIconLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -330,6 +344,16 @@
         _patientGenderLab = label;
     }
     return _patientGenderLab;
+}
+
+- (UIView *)doctBgView {
+    if (!_doctBgView) {
+        UIView *tmp = [[UIView alloc] initWithFrame:CGRectZero];
+        tmp.backgroundColor = [UIColor blueColor];
+        tmp.layer.masksToBounds = true;
+        _doctBgView = tmp;
+    }
+    return _doctBgView;
 }
 
 - (UILabel *)doctPreLab {
@@ -644,14 +668,14 @@ NSString *something = @"相声（Crosstalk)一种民间说唱曲艺。相声一�
         NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:0];
         int len = (int)[something length];
         for (int i = 0; i < mCount; i ++) {
-            NSString *addtInfo = [something substringToIndex:[self random:20 max:len]];
+            NSString *addtInfo = [something substringToIndex:[self random:0 max:len]];
             //NSLog(@"generate info :%@",addtInfo);
             NSDictionary *dict = @{
                                    @"tasktype":PBFormat(@"%zd",i%3),
                                    @"patient":@"马天明",
                                    @"doctpre":@"医生信息",
                                    @"addtpre":(i%2==0)?@"随访信息":@"就诊地址",
-                                   @"addtinfo":addtInfo
+                                   @"addtinfo":(i%2==0)?@"":addtInfo
                                    };
             [tmp addObject:dict];
         }
