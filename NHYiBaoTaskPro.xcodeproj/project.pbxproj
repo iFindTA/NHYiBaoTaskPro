@@ -18,6 +18,8 @@
 		60F7DF121D62B7D40012FEF5 /* NHYiBaoTaskProUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F7DF111D62B7D40012FEF5 /* NHYiBaoTaskProUITests.m */; };
 		60F7DF231D62B8310012FEF5 /* YBTaskRootCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F7DF221D62B8310012FEF5 /* YBTaskRootCtr.m */; };
 		AFA5AA52C7BEC7F3EEB680E7 /* libPods-NHYiBaoTaskPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF76C4EF229C7C76BAAA410 /* libPods-NHYiBaoTaskPro.a */; };
+		FB00C2E41D768DF0003F3BC0 /* YBMsgRootCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00C2E31D768DF0003F3BC0 /* YBMsgRootCtr.m */; };
+		FB00C2E71D768E24003F3BC0 /* YBScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00C2E61D768E24003F3BC0 /* YBScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,10 @@
 		60F7DF221D62B8310012FEF5 /* YBTaskRootCtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBTaskRootCtr.m; sourceTree = "<group>"; };
 		60F7DF251D62B9640012FEF5 /* YiBaoPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YiBaoPrefix.pch; sourceTree = "<group>"; };
 		D4B305C753003F0BADE6B4F2 /* Pods-NHYiBaoTaskPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHYiBaoTaskPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NHYiBaoTaskPro/Pods-NHYiBaoTaskPro.debug.xcconfig"; sourceTree = "<group>"; };
+		FB00C2E21D768DF0003F3BC0 /* YBMsgRootCtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBMsgRootCtr.h; sourceTree = "<group>"; };
+		FB00C2E31D768DF0003F3BC0 /* YBMsgRootCtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBMsgRootCtr.m; sourceTree = "<group>"; };
+		FB00C2E51D768E24003F3BC0 /* YBScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBScrollView.h; sourceTree = "<group>"; };
+		FB00C2E61D768E24003F3BC0 /* YBScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,7 @@
 		60F7DF1F1D62B8160012FEF5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FB00C2E11D768DD7003F3BC0 /* Msg */,
 				60F7DF201D62B8160012FEF5 /* Task */,
 			);
 			path = Classes;
@@ -206,6 +213,18 @@
 				57D06940C92488313166ED13 /* Pods-NHYiBaoTaskPro.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB00C2E11D768DD7003F3BC0 /* Msg */ = {
+			isa = PBXGroup;
+			children = (
+				FB00C2E21D768DF0003F3BC0 /* YBMsgRootCtr.h */,
+				FB00C2E31D768DF0003F3BC0 /* YBMsgRootCtr.m */,
+				FB00C2E51D768E24003F3BC0 /* YBScrollView.h */,
+				FB00C2E61D768E24003F3BC0 /* YBScrollView.m */,
+			);
+			name = Msg;
+			path = Task/Msg;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,8 +411,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB00C2E71D768E24003F3BC0 /* YBScrollView.m in Sources */,
 				60F7DEF41D62B7D40012FEF5 /* ViewController.m in Sources */,
 				60F7DF231D62B8310012FEF5 /* YBTaskRootCtr.m in Sources */,
+				FB00C2E41D768DF0003F3BC0 /* YBMsgRootCtr.m in Sources */,
 				60F7DEF11D62B7D40012FEF5 /* AppDelegate.m in Sources */,
 				60D480B21D63F693004A70A2 /* PBFixedNavigator.m in Sources */,
 				60F7DEEE1D62B7D40012FEF5 /* main.m in Sources */,

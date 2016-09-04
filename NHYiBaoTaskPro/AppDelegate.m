@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "YBMsgRootCtr.h"
 #import "YBTaskRootCtr.h"
 
 @interface AppDelegate ()
@@ -30,7 +31,7 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17]}];
     
     UITabBarController *tabBar = [[UITabBarController alloc] init];
-    UIViewController *msgCtr = [[UIViewController alloc] init];
+    YBMsgRootCtr *msgCtr = [[YBMsgRootCtr alloc] init];
     UINavigationController *msgNavi = [[UINavigationController alloc] initWithRootViewController:msgCtr];
     msgCtr.title = @"消息";
     
