@@ -20,6 +20,7 @@
 		AFA5AA52C7BEC7F3EEB680E7 /* libPods-NHYiBaoTaskPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF76C4EF229C7C76BAAA410 /* libPods-NHYiBaoTaskPro.a */; };
 		FB00C2E41D768DF0003F3BC0 /* YBMsgRootCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00C2E31D768DF0003F3BC0 /* YBMsgRootCtr.m */; };
 		FB00C2E71D768E24003F3BC0 /* YBScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00C2E61D768E24003F3BC0 /* YBScrollView.m */; };
+		FB0A451D1D7C676900B6EAAE /* YBTaskPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0A451C1D7C676900B6EAAE /* YBTaskPageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		FB00C2E31D768DF0003F3BC0 /* YBMsgRootCtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBMsgRootCtr.m; sourceTree = "<group>"; };
 		FB00C2E51D768E24003F3BC0 /* YBScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBScrollView.h; sourceTree = "<group>"; };
 		FB00C2E61D768E24003F3BC0 /* YBScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBScrollView.m; sourceTree = "<group>"; };
+		FB0A451B1D7C676900B6EAAE /* YBTaskPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBTaskPageView.h; sourceTree = "<group>"; };
+		FB0A451C1D7C676900B6EAAE /* YBTaskPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBTaskPageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,8 @@
 			children = (
 				60F7DF211D62B8310012FEF5 /* YBTaskRootCtr.h */,
 				60F7DF221D62B8310012FEF5 /* YBTaskRootCtr.m */,
+				FB0A451B1D7C676900B6EAAE /* YBTaskPageView.h */,
+				FB0A451C1D7C676900B6EAAE /* YBTaskPageView.m */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB00C2E71D768E24003F3BC0 /* YBScrollView.m in Sources */,
+				FB0A451D1D7C676900B6EAAE /* YBTaskPageView.m in Sources */,
 				60F7DEF41D62B7D40012FEF5 /* ViewController.m in Sources */,
 				60F7DF231D62B8310012FEF5 /* YBTaskRootCtr.m in Sources */,
 				FB00C2E41D768DF0003F3BC0 /* YBMsgRootCtr.m in Sources */,
