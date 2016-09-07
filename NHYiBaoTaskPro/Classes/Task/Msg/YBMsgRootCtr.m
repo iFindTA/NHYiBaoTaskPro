@@ -11,6 +11,9 @@
 
 @interface YBMsgRootCtr ()
 
+@property (nonatomic, strong) UIButton *brn;
+@property (nonatomic, strong) YBScrollView *scroller;
+
 @end
 
 @implementation YBMsgRootCtr
@@ -22,6 +25,24 @@
     YBScrollView *scroller = [[YBScrollView alloc] initWithFrame:CGRectZero];
     scroller.backgroundColor = [UIColor redColor];
     [self.view addSubview:scroller];
+    self.scroller = scroller;
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.backgroundColor = [UIColor greenColor];
+    btn.frame = CGRectMake(100, 200, 200, 50);
+    btn.exclusiveTouch = true;
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(activeBtnEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    NSString *info = [NSString stringWithFormat:@"active:%zd",btn.isSelected];
+    [btn setTitle:info forState:UIControlStateNormal];
+}
+
+- (void)activeBtnEvent:(UIButton *)btn {
+    btn.selected = !btn.selected;
+    NSString *info = [NSString stringWithFormat:@"active:%zd",btn.isSelected];
+    [btn setTitle:info forState:UIControlStateNormal];
+    [self.scroller activeConstraint:btn.isSelected];
 }
 
 - (void)didReceiveMemoryWarning {

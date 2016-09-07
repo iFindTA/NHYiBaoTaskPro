@@ -11,7 +11,11 @@
 @interface YBScrollView ()
 
 @property (nonatomic, strong) UIView *contentView;
-@property (nonatomic, strong) UILabel *label;
+
+@property (nonatomic, assign) BOOL isActive;
+@property (nonatomic, strong) UIView *taskView,*recordView;
+
+@property (nonatomic, strong) MASConstraint *constraint;
 
 @end
 
@@ -29,7 +33,15 @@
     
     [self addSubview:self.contentView];
     
-    [self.contentView addSubview:self.label];
+    UIView *task = [[UIView alloc] init];
+    task.backgroundColor = [UIColor pb_randomColor];
+    [self addSubview:task];
+    self.taskView = task;
+    UIView *record = [[UIView alloc] init];
+    record.backgroundColor = [UIColor pb_randomColor];
+    [self addSubview:record];
+    self.recordView = record;
+    self.isActive = false;
     
     [self layoutIfNeeded];
 }
@@ -42,15 +54,28 @@
         make.height.equalTo(@(PBSCREEN_HEIGHT));
     }];
     //其次布局内容
-    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.taskView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.contentView);
-        make.height.equalTo(@1000);
+        make.height.equalTo(@200);
     }];
+    [self.recordView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(200);
+        make.left.right.equalTo(self.contentView);
+        make.height.equalTo(@150).priority(UILayoutPriorityDefaultHigh);
+        if (!self.constraint) {
+            self.constraint = make.height.equalTo(@0).priority(UILayoutPriorityRequired);
+        }
+    }];
+    if (self.isActive) {
+        [self.constraint activate];
+    }else{
+        [self.constraint deactivate];
+    }
     //最后布局content
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
         make.width.equalTo(self);
-        make.bottom.equalTo(self.label);
+        make.bottom.equalTo(self.recordView);
     }];
 }
 
@@ -63,12 +88,9 @@
     return _contentView;
 }
 
-- (UILabel *)label {
-    if (!_label) {
-        _label = [[UILabel alloc] init];
-        _label.backgroundColor = [UIColor purpleColor];
-    }
-    return _label;
+- (void)activeConstraint:(BOOL)active {
+    self.isActive = active;
+    [self setNeedsLayout];
 }
 
 /*

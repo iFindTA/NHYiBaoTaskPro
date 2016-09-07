@@ -10,4 +10,6 @@
 
 @interface YBScrollView : UIScrollView
 
+- (void)activeConstraint:(BOOL)active;
+
 @end
