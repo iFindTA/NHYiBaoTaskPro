@@ -31,7 +31,7 @@
 
 - (void)__initSetup {
     
-    [self addSubview:self.contentView];
+    //[self addSubview:self.contentView];
     
     UIView *task = [[UIView alloc] init];
     task.backgroundColor = [UIColor pb_randomColor];
@@ -49,22 +49,30 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     //首先布局自身
+    weakify(self)
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
+        //make.top.equalTo(@0);
         make.width.equalTo(@(PBSCREEN_WIDTH));
-        make.height.equalTo(@(PBSCREEN_HEIGHT));
+        //make.height.equalTo(@(PBSCREEN_HEIGHT));
+    }];
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        strongify(self)
+        make.top.left.right.equalTo(self);
+        make.width.equalTo(@(PBSCREEN_WIDTH));
+        //make.top.left.right.equalTo(self);
     }];
     //其次布局内容
     [self.taskView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self.contentView);
-        make.height.equalTo(@200);
+        strongify(self)
+        make.top.left.right.equalTo(self);
+        make.height.equalTo(@500);
     }];
-    [self.recordView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(200);
-        make.left.right.equalTo(self.contentView);
-        make.height.equalTo(@150).priority(UILayoutPriorityDefaultHigh);
-        if (!self.constraint) {
-            self.constraint = make.height.equalTo(@0).priority(UILayoutPriorityRequired);
-        }
+    [self.recordView mas_makeConstraints:^(MASConstraintMaker *make) {
+        strongify(self)
+        make.top.equalTo(self.taskView.mas_bottom);
+        make.left.right.equalTo(self);
+        make.height.equalTo(@450).priority(UILayoutPriorityDefaultHigh);
+        self.constraint = make.height.equalTo(@0).priority(UILayoutPriorityRequired);
     }];
     if (self.isActive) {
         [self.constraint activate];
@@ -72,10 +80,15 @@
         [self.constraint deactivate];
     }
     //最后布局content
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
-        make.width.equalTo(self);
-        make.bottom.equalTo(self.recordView);
+//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        strongify(self)
+//        make.bottom.equalTo(self.recordView);
+//    }];
+    
+    [self mas_makeConstraints:^(MASConstraintMaker *make) {
+        //make.top.equalTo(@0);
+        //make.width.equalTo(@(PBSCREEN_WIDTH));
+        make.bottom.equalTo(self.recordView.mas_bottom);
     }];
 }
 
