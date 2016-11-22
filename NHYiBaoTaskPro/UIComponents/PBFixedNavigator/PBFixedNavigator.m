@@ -12,6 +12,10 @@ static const int mSubHeight                 =       40;
 static const int mFlagHeight                =       2;
 static const int mFontSize                  =       15;
 int const mSubNavigatorHeight               =       mSubHeight;
+static const int mAnimateDuration           =       0.25;
+#ifndef PBSCREEN_WIDTH
+#define PBSCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
+#endif
 
 @interface PBFixedNavigator ()
 
@@ -49,6 +53,7 @@ int const mSubNavigatorHeight               =       mSubHeight;
 
 - (void)__initSetup:(NSArray *)titles {
     if (titles.count) {
+        
         self.mTitles = [NSArray arrayWithArray:titles];
         NSUInteger mCounts = titles.count;
         UIFont *font = [UIFont systemFontOfSize:mFontSize];
@@ -66,9 +71,9 @@ int const mSubNavigatorHeight               =       mSubHeight;
         
         self.kIndex = 0;
         __block NSMutableArray *items = [NSMutableArray arrayWithCapacity:0];
-        weakify(self)
+        __weak typeof(PBFixedNavigator) *weakSelf = self;
         [titles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            strongify(self)
+            __strong typeof (PBFixedNavigator) *strongSelf = weakSelf;
             CGRect bounds = CGRectMake(mItemWidth*idx, 0, mItemWidth, mSubHeight-mFlagHeight);
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             btn.tag = idx;
@@ -79,7 +84,7 @@ int const mSubNavigatorHeight               =       mSubHeight;
             [btn setTitle:obj forState:UIControlStateNormal];
             //[btn setTitle:obj forState:UIControlStateSelected];
             //[btn addTarget:self action:@selector(itemEvent:) forControlEvents:UIControlEventTouchUpInside];
-            [self addSubview:btn];
+            [strongSelf addSubview:btn];
             //btn.selected = (idx == self.kIndex);
             
             [items addObject:btn];
@@ -103,7 +108,7 @@ int const mSubNavigatorHeight               =       mSubHeight;
         self.maskLayer = shapeLayer;
         __block NSMutableArray *maskItems = [NSMutableArray arrayWithCapacity:0];
         [titles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            strongify(self)
+            __strong typeof (PBFixedNavigator) *strongSelf = weakSelf;
             CGRect bounds = CGRectMake(mItemWidth*idx, 0, mItemWidth, mSubHeight-mFlagHeight);
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             btn.tag = idx;
@@ -114,8 +119,8 @@ int const mSubNavigatorHeight               =       mSubHeight;
             //[btn setTitleColor:selectColor forState:UIControlStateSelected];
             [btn setTitle:obj forState:UIControlStateNormal];
             //[btn setTitle:obj forState:UIControlStateSelected];
-            [btn addTarget:self action:@selector(itemEvent:) forControlEvents:UIControlEventTouchUpInside];
-            [self.maskView addSubview:btn];
+            [btn addTarget:strongSelf action:@selector(itemEvent:) forControlEvents:UIControlEventTouchUpInside];
+            [strongSelf.maskView addSubview:btn];
             [maskItems addObject:btn];
         }];
         self.mMaskTitItems = [maskItems copy];
@@ -141,7 +146,7 @@ int const mSubNavigatorHeight               =       mSubHeight;
 //    self.flagger.affineTransform = CGAffineTransformMakeTranslation(real_x, 0);
 //    self.maskLayer.affineTransform = CGAffineTransformMakeTranslation(real_x, 0);
     
-    [UIView animateWithDuration:PBANIMATE_DURATION animations:^{
+    [UIView animateWithDuration:mAnimateDuration animations:^{
         self.flagger.affineTransform = CGAffineTransformMakeTranslation(real_x, 0);
         self.maskLayer.affineTransform = CGAffineTransformMakeTranslation(real_x, 0);
     }];
@@ -152,7 +157,7 @@ int const mSubNavigatorHeight               =       mSubHeight;
         return;
     }
     NSString *title = self.mTitles[index];
-    title = PBFormat(@"%@%zd",title,mCount);
+    title = [NSString stringWithFormat:@"%@%zd",title,mCount];
     UIButton *btn = self.mTitItems[index];
     [btn setTitle:title forState:UIControlStateNormal];
     btn = self.mMaskTitItems[index];

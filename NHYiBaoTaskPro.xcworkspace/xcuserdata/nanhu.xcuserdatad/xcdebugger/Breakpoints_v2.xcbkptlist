@@ -16,7 +16,7 @@
             startingLineNumber = "74"
             endingLineNumber = "74"
             landmarkName = "-layoutSubviews"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,7 +32,7 @@
             startingLineNumber = "82"
             endingLineNumber = "82"
             landmarkName = "-layoutSubviews"
-            landmarkType = "5">
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -80,7 +80,7 @@
             startingLineNumber = "78"
             endingLineNumber = "78"
             landmarkName = "-layoutSubviews"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
